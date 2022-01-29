@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://character/Character.gd" type="Script" id=1]
 [ext_resource path="res://character/frost.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
 height = 4.0
+
+[sub_resource type="CanvasItemMaterial" id=23]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -51,6 +54,9 @@ animations = [ {
 "name": "default",
 "speed": 10.0
 } ]
+
+[sub_resource type="CanvasItemMaterial" id=22]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
@@ -105,10 +111,13 @@ shape = SubResource( 1 )
 
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
 visible = false
+material = SubResource( 23 )
 frames = SubResource( 11 )
+frame = 5
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 6
+frame = 3
 playing = true
