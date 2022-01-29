@@ -121,6 +121,7 @@ player2_charge={
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="effect"
+2d_physics/layer_3="character"
 
 [physics]
 
