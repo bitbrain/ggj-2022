@@ -117,17 +117,17 @@ shape = SubResource( 1 )
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 23 )
 frames = SubResource( 11 )
-frame = 4
+frame = 8
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 2
+frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.4
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]

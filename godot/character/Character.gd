@@ -7,11 +7,11 @@ enum PlayerType {
 	FIRE
 	FROST
 }
-export(float) var ACCELERATION = 340
-export(float) var CHARGING_ACCELERATION = ACCELERATION * 3
-export(float) var FRICTION = 670
-export(float) var MAX_SPEED = 175
-export(float) var CHARGING_SPEED = MAX_SPEED * 3
+export(float) var ACCELERATION = 1150
+export(float) var CHARGING_ACCELERATION = ACCELERATION * 2
+export(float) var FRICTION = 470
+export(float) var MAX_SPEED = 275
+export(float) var CHARGING_SPEED = MAX_SPEED * 2
 export(PlayerType) var PLAYER_TYPE
 
 export(String) var east_action
