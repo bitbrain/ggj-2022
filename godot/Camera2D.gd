@@ -16,5 +16,5 @@ func _process(delta):
 	global_position = newpos
 	var distance = (p1.global_position - p2.global_position).length()
 	
-	zoom.x = 1.0 + distance / 1500.0
-	zoom.y = 1.0 + distance / 1500.0
+	zoom.x = 1.0 + (distance*distance) / 500500.0
+	zoom.y = 1.0 + (distance*distance) / 500500.0
