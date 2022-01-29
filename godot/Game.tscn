@@ -80,12 +80,19 @@ tile_data = PoolIntArray( -196611, 1, 0, -131078, 2, 0, -196607, 3, 0, -131067, 
 
 [node name="WorldObjects" type="YSort" parent="."]
 
-[node name="Character" parent="WorldObjects" instance=ExtResource( 1 )]
+[node name="Fire" parent="WorldObjects" instance=ExtResource( 1 )]
 position = Vector2( 4, 4 )
+east_action = "player1_move_east"
+west_action = "player1_move_west"
+south_action = "player1_move_south"
+north_action = "player1_move_north"
 
-[node name="Camera2D" type="Camera2D" parent="WorldObjects/Character"]
-current = true
-smoothing_enabled = true
+[node name="Frost" parent="WorldObjects" instance=ExtResource( 1 )]
+PLAYER_TYPE = 1
+east_action = "player2_move_east"
+west_action = "player2_move_west"
+south_action = "player2_move_south"
+north_action = "player2_move_north"
 
 [node name="Trees" type="YSort" parent="WorldObjects"]
 
@@ -100,3 +107,8 @@ position = Vector2( -83, 94 )
 
 [node name="Tree4" parent="WorldObjects/Trees" instance=ExtResource( 2 )]
 position = Vector2( 81, 94 )
+
+[node name="Camera2D" type="Camera2D" parent="WorldObjects"]
+position = Vector2( 4, 4 )
+current = true
+smoothing_enabled = true

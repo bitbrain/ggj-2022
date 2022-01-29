@@ -103,6 +103,7 @@ animations = [ {
 } ]
 
 [node name="Character" type="KinematicBody2D"]
+collision_layer = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -110,14 +111,13 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
-visible = false
 material = SubResource( 23 )
 frames = SubResource( 11 )
-frame = 5
+frame = 8
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 3
+frame = 6
 playing = true
