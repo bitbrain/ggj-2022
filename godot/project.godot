@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Object_Tree",
 "language": "GDScript",
 "path": "res://tree/Tree.gd"
+}, {
+"base": "ColorRect",
+"class": "Overlay",
+"language": "GDScript",
+"path": "res://ui/Overlay.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
-"Object_Tree": ""
+"Object_Tree": "",
+"Overlay": ""
 }
 
 [application]
