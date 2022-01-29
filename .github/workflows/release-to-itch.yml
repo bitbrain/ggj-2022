@@ -1,0 +1,100 @@
+on:
+  release:
+    types: [published]
+
+jobs:
+  release_windows_64bit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download Windows
+        id: download-windows
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "latest"
+          file: ice-and-fire-windows-64bit.zip
+          token: "${{ secrets.GH_CREDENTIALS }}"
+      - name: deploy to itch.io (Windows 64bit)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: windows
+          ITCH_GAME: ice-and-fire
+          ITCH_USER: bitbrain
+          PACKAGE: ice-and-fire-windows-64bit.zip
+          VERSION: ${{ steps.download-windows.outputs.version }}
+  release_windows_32bit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download Windows
+        id: download-windows
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "latest"
+          file: ice-and-fire-windows-32bit.zip
+          token: "${{ secrets.GH_CREDENTIALS }}"
+      - name: deploy to itch.io (Windows 32bit)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: windows
+          ITCH_GAME: ice-and-fire
+          ITCH_USER: bitbrain
+          PACKAGE: ice-and-fire-windows-32bit.zip
+          VERSION: ${{ steps.download-windows.outputs.version }}
+  release_macos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download MacOS
+        id: download-macos
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "latest"
+          file: ice-and-fire-macos.zip
+          token: "${{ secrets.GH_CREDENTIALS }}"
+      - name: deploy to itch.io (MacOS)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: mac
+          ITCH_GAME: ice-and-fire
+          ITCH_USER: bitbrain
+          PACKAGE: ice-and-fire-macos.zip
+          VERSION: ${{ steps.download-macos.outputs.version }}
+  release_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download Linux
+        id: download-linux
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "latest"
+          file: ice-and-fire-linux.zip
+          token: "${{ secrets.GH_CREDENTIALS }}"
+      - name: deploy to itch.io (Linux)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: linux
+          ITCH_GAME: ice-and-fire
+          ITCH_USER: bitbrain
+          PACKAGE: ice-and-fire-linux.zip
+          VERSION: ${{ steps.download-linux.outputs.version }}
+  release_html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download HTML5
+        id: download-html
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "latest"
+          file: ice-and-fire-html.zip
+          token: "${{ secrets.GH_CREDENTIALS }}"
+      - name: deploy to itch.io (HTML5)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html
+          ITCH_GAME: ice-and-fire
+          ITCH_USER: bitbrain
+          PACKAGE: ice-and-fire-html.zip
+          VERSION: ${{ steps.download-html.outputs.version }}
