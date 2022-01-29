@@ -68,11 +68,10 @@ func ressurect():
 	health = 100
 
 func take_damage(damage):
-	health -= damage
+	self.health = self.health - damage
 	#print("Ouch..."+str(health))
 
 func _on_Area2D_body_entered(body):
 	var other_character = body as Character
 	if charging:
 		other_character.take_damage(20)
-		

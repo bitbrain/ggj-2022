@@ -21,4 +21,10 @@ collision_mask = 2
 position = Vector2( -2, 2 )
 shape = SubResource( 1 )
 
+[node name="BurstTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="BurstTimer" to="." method="_on_BurstTimer_timeout"]
