@@ -32,11 +32,12 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=960
-window/size/height=540
+window/size/width=614
+window/size/height=345
 window/size/test_width=960
 window/size/test_height=540
 window/dpi/allow_hidpi=true
+window/vsync/vsync_via_compositor=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
 
