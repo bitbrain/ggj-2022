@@ -22,25 +22,6 @@ jobs:
           ITCH_USER: bitbrain
           PACKAGE: ice-and-fire-windows-64bit.zip
           VERSION: ${{ steps.download-windows.outputs.version }}
-  release_windows_32bit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: download Windows
-        id: download-windows
-        uses: dsaltares/fetch-gh-release-asset@master
-        with:
-          version: "latest"
-          file: ice-and-fire-windows-32bit.zip
-          token: "${{ secrets.GH_CREDENTIALS }}"
-      - name: deploy to itch.io (Windows 32bit)
-        uses: josephbmanley/butler-publish-itchio-action@master
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: windows
-          ITCH_GAME: ice-and-fire
-          ITCH_USER: bitbrain
-          PACKAGE: ice-and-fire-windows-32bit.zip
-          VERSION: ${{ steps.download-windows.outputs.version }}
   release_macos:
     runs-on: ubuntu-latest
     steps:
