@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Godot"
+config/name="Ice and Fire"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
@@ -53,6 +53,8 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
