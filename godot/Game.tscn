@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tree/Tree.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://tilemap/rocks.png" type="Texture" id=4]
 [ext_resource path="res://Game.gd" type="Script" id=5]
 [ext_resource path="res://Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://ui/CharacterUI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "rocks.png 0"
@@ -165,3 +166,24 @@ current = true
 script = ExtResource( 6 )
 player_1 = NodePath("../WorldObjects/Fire")
 player_2 = NodePath("../WorldObjects/Frost")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FrostCharacterUI" parent="UI" instance=ExtResource( 7 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -10.0
+margin_top = -50.0
+margin_right = 112.0
+margin_bottom = 0.0
+rect_scale = Vector2( -1, 1 )
+character_path = NodePath("../../WorldObjects/Frost")
+
+[node name="FireCharacterUI" parent="UI" instance=ExtResource( 7 )]
+anchor_top = 1.0
+anchor_right = 0.0
+margin_left = 10.0
+margin_top = -50.0
+margin_right = 112.0
+margin_bottom = 0.0
+character_path = NodePath("../../WorldObjects/Fire")
