@@ -86,6 +86,7 @@ east_action = "player1_move_east"
 west_action = "player1_move_west"
 south_action = "player1_move_south"
 north_action = "player1_move_north"
+charge_action = "player1_charge"
 
 [node name="Frost" parent="WorldObjects" instance=ExtResource( 1 )]
 PLAYER_TYPE = 1
@@ -93,6 +94,7 @@ east_action = "player2_move_east"
 west_action = "player2_move_west"
 south_action = "player2_move_south"
 north_action = "player2_move_north"
+charge_action = "player2_charge"
 
 [node name="Trees" type="YSort" parent="WorldObjects"]
 

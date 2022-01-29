@@ -113,11 +113,17 @@ shape = SubResource( 1 )
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 23 )
 frames = SubResource( 11 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 6
+frame = 5
 playing = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
