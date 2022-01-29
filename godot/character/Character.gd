@@ -28,6 +28,8 @@ var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
 var charging = false
 var health = 100.0 setget _set_health
+var energy = 5
+var max_energy = 10
 var death = false
 
 func _ready():
@@ -39,8 +41,10 @@ func _ready():
 		FrostSprite.visible = true
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed(charge_action) and not charging:
+	if Input.is_action_just_pressed(charge_action) and not charging and energy > 0:
 		charging = true
+		self.energy = self.energy - 1
+		print("Charge used, energy is now "+str(energy))
 		ChargerTimer.start()
 		
 	if not charging:
@@ -62,6 +66,11 @@ func _set_health(h):
 	if health == 0:
 		death = true
 		emit_signal("character_dead")
+
+func set_energy():
+	if self.energy < max_energy:
+		self.energy = self.energy + 1
+		print("Recharging energy... "+str(energy))
 
 func ressurect():
 	death = false

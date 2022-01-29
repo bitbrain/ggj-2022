@@ -11,7 +11,7 @@ func _on_Area2D_body_entered(body):
 	if character.PLAYER_TYPE == Character.PlayerType.FROST and character.charging:
 		treeSprite.frame = 2	
 	#print ("Collision with tree detected")
-	
+
 func _on_BurstTimer_timeout():
 	for character in closebycharacter:
 		if character.PLAYER_TYPE == Character.PlayerType.FIRE and treeSprite.frame == 2:
@@ -20,6 +20,14 @@ func _on_BurstTimer_timeout():
 		if character.PLAYER_TYPE == Character.PlayerType.FROST and treeSprite.frame == 1:
 			character.take_damage(5)
 			#("Player two took 5 damage")
+		
 func _on_Area2D_body_exited(body):
 	var character = body as Character
 	closebycharacter.erase(character)
+
+func _on_EnergyTimer_timeout():
+	for character in closebycharacter:
+		if character.PLAYER_TYPE == Character.PlayerType.FIRE and treeSprite.frame == 1:
+			character.set_energy()
+		if character.PLAYER_TYPE == Character.PlayerType.FROST and treeSprite.frame == 2:
+			character.set_energy()

@@ -25,6 +25,11 @@ shape = SubResource( 1 )
 wait_time = 0.5
 autostart = true
 
+[node name="EnergyTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="BurstTimer" to="." method="_on_BurstTimer_timeout"]
+[connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]
