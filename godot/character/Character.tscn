@@ -106,10 +106,9 @@ shape = SubResource( 1 )
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 11 )
-frame = 5
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 21 )
-frame = 2
+frame = 6
 playing = true
