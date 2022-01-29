@@ -7,7 +7,7 @@ enum PlayerType {
 
 export(float) var ACCELERATION = 340
 export(float) var FRICTION = 670
-export(float) var MAX_SPEED = 75
+export(float) var MAX_SPEED = 165
 export(PlayerType) var PLAYER_TYPE
 
 var velocity = Vector2.ZERO
