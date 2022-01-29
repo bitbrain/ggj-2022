@@ -55,8 +55,11 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(input_vector * CHARGING_SPEED, CHARGING_ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
 
-func _on_Timer_timeout():
+func _on_ChargeTimer_timeout():
 	charging = false
+
+func _on_EnergyTimer_timeout():
+	set_energy()
 
 func _set_health(h):
 	if death:

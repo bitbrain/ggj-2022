@@ -117,17 +117,22 @@ shape = SubResource( 1 )
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 23 )
 frames = SubResource( 11 )
+frame = 5
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 7
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="EnergyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -136,5 +141,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 24 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]
+[connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
