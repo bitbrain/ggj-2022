@@ -29,7 +29,6 @@ var input_vector = Vector2.ZERO
 var charging = false
 var health = 100.0 setget _set_health
 var energy = 5
-var max_energy = 10
 var death = false
 
 func _ready():
@@ -68,7 +67,7 @@ func _set_health(h):
 		emit_signal("character_dead")
 
 func set_energy():
-	if self.energy < max_energy:
+	if self.energy < 5:
 		self.energy = self.energy + 1
 		print("Recharging energy... "+str(energy))
 
