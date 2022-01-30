@@ -1,10 +1,7 @@
 extends Node
 
 var current_scene = null
-var world_seed : String = ""
-var save_number : int = -1
-
-var drag_data
+var winner
 
 func _ready():
 	var root = get_tree().get_root()

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/buttons.png" type="Texture" id=1]
+[ext_resource path="res://font/font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/GameButton.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 150, 50 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 300, 0, 150, 50 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 150, 0, 150, 50 )
+
+[node name="GameButton" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 50 )
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 3 )
+texture_hover = SubResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "Hello World"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "click me"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_GameButton_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_GameButton_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_GameButton_pressed"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ui/GameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://font/upheavtt.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/Overlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameOverScreen.gd" type="Script" id=4]
+[ext_resource path="res://font/font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://character/fire-spriteframes.tres" type="SpriteFrames" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 107.0
+margin_top = 63.0
+margin_right = 507.0
+margin_bottom = 282.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 76.0
+custom_constants/margin_bottom = 30
+
+[node name="WinnerLabel" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer"]
+margin_right = 400.0
+margin_bottom = 46.0
+custom_colors/font_color = Color( 0.65098, 0.521569, 0.623529, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Winner"
+align = 1
+
+[node name="PlayerName" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 400.0
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 5 )
+text = "player"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 95.0
+margin_right = 400.0
+margin_bottom = 165.0
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 400.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 400, 70 )
+
+[node name="Sprite" type="AnimatedSprite" parent="CenterContainer/VBoxContainer/CenterContainer/Control"]
+position = Vector2( 202, 35 )
+frames = ExtResource( 6 )
+frame = 5
+playing = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 169.0
+margin_right = 400.0
+margin_bottom = 219.0
+alignment = 1
+
+[node name="PlayAgainButton" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 48.0
+margin_right = 198.0
+margin_bottom = 50.0
+text = "Play again!"
+
+[node name="ExitGameButton" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 202.0
+margin_right = 352.0
+margin_bottom = 50.0
+text = "Quit game"
+
+[node name="Overlay" parent="." instance=ExtResource( 3 )]
+auto_fade_in = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PlayAgainButton" to="." method="_on_GameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/ExitGameButton" to="." method="_on_GameButton2_pressed"]
+[connection signal="on_complete_fade_out" from="Overlay" to="." method="_on_Overlay_on_complete_fade_out"]

@@ -120,20 +120,12 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 23 )
 frames = SubResource( 11 )
-<<<<<<< Updated upstream
-frame = 6
-=======
-frame = 2
->>>>>>> Stashed changes
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-<<<<<<< Updated upstream
-frame = 4
-=======
->>>>>>> Stashed changes
+frame = 7
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
