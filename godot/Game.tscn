@@ -85,7 +85,7 @@ format = 1
 [node name="WorldObjects" type="YSort" parent="."]
 
 [node name="Fire" parent="WorldObjects" instance=ExtResource( 1 )]
-position = Vector2( 4, 4 )
+position = Vector2( 190, 3 )
 east_action = "player1_move_east"
 west_action = "player1_move_west"
 south_action = "player1_move_south"
@@ -93,6 +93,7 @@ north_action = "player1_move_north"
 charge_action = "player1_charge"
 
 [node name="Frost" parent="WorldObjects" instance=ExtResource( 1 )]
+position = Vector2( -253, 33 )
 PLAYER_TYPE = 1
 east_action = "player2_move_east"
 west_action = "player2_move_west"

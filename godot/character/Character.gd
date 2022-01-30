@@ -23,6 +23,7 @@ export(String) var charge_action
 onready var FireSprite = $FireSprite
 onready var FrostSprite = $FrostSprite
 onready var ChargerTimer = $Timer
+onready var dash_sound = $DashSound
 
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
@@ -45,6 +46,7 @@ func _physics_process(delta):
 		self.energy = self.energy - 1
 		print("Charge used, energy is now "+str(energy))
 		ChargerTimer.start()
+		dash_sound.play()
 		
 	if not charging:
 		input_vector.x = Input.get_action_strength(east_action) - Input.get_action_strength(west_action)

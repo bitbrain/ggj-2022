@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://character/Character.gd" type="Script" id=1]
 [ext_resource path="res://character/frost.png" type="Texture" id=2]
 [ext_resource path="res://character/fire.png" type="Texture" id=3]
+[ext_resource path="res://character/dash.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -109,21 +110,24 @@ radius = 36.0139
 collision_layer = 6
 collision_mask = 0
 script = ExtResource( 1 )
+CHARGING_ACCELERATION = 2300.0
+CHARGING_SPEED = 550.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
+visible = false
 material = SubResource( 23 )
 frames = SubResource( 11 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -140,6 +144,13 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 24 )
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+max_distance = 1500.0
+attenuation = 2.54912
+bus = "Environment"
 
 [connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]
 [connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]
