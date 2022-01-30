@@ -11,5 +11,5 @@ dest_files=[ "res://.import/frost-ambience.ogg-8c7a76811d4abb42cab55daa79190110.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
