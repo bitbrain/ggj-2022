@@ -108,7 +108,6 @@ radius = 36.0139
 
 [node name="Character" type="KinematicBody2D"]
 collision_layer = 6
-collision_mask = 0
 script = ExtResource( 1 )
 CHARGING_ACCELERATION = 2300.0
 CHARGING_SPEED = 550.0
@@ -121,13 +120,20 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 23 )
 frames = SubResource( 11 )
+<<<<<<< Updated upstream
 frame = 6
+=======
+frame = 2
+>>>>>>> Stashed changes
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
+<<<<<<< Updated upstream
 frame = 4
+=======
+>>>>>>> Stashed changes
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

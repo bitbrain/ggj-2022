@@ -2,6 +2,8 @@ class_name Character
 extends KinematicBody2D
 
 signal character_dead
+signal health_changed(health)
+signal energy_changed(energy)
 
 enum PlayerType {
 	FIRE
@@ -29,7 +31,7 @@ var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
 var charging = false
 var health = 100.0 setget _set_health
-var energy = 5
+var energy = 5 setget _set_energy
 var death = false
 
 func _ready():
@@ -67,9 +69,14 @@ func _set_health(h):
 	if death:
 		return
 	health = max(h, 0)
+	emit_signal("health_changed", health)
 	if health == 0:
 		death = true
 		emit_signal("character_dead")
+
+func _set_energy(e):
+	energy = e
+	emit_signal("energy_changed", energy)
 
 func set_energy():
 	if self.energy < 5:

@@ -120,13 +120,13 @@ texture = ExtResource( 1 )
 [node name="HealthFire" type="AnimatedSprite" parent="."]
 position = Vector2( 56, 20 )
 frames = SubResource( 11 )
-frame = 9
+frame = 8
 playing = true
 
 [node name="HealthFrost" type="AnimatedSprite" parent="."]
 position = Vector2( 56, 20 )
 frames = SubResource( 22 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="Energy" type="Sprite" parent="."]
