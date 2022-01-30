@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" load_steps=3 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
@@ -11,6 +11,11 @@ hipass = 0.15
 dry = 0.69
 wet = 0.29
 
+[sub_resource type="AudioEffectLowPassFilter" id=2]
+resource_name = "LowPassFilter"
+cutoff_hz = 686.0
+resonance = 0.32
+
 [resource]
 bus/1/name = "Environment"
 bus/1/solo = false
@@ -20,3 +25,11 @@ bus/1/volume_db = 0.0
 bus/1/send = "Master"
 bus/1/effect/0/effect = SubResource( 1 )
 bus/1/effect/0/enabled = true
+bus/2/name = "CharacterBackground"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 2 )
+bus/2/effect/0/enabled = true

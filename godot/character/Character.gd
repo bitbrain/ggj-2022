@@ -28,6 +28,9 @@ onready var ChargerTimer = $Timer
 onready var dash_sound = $DashSound
 onready var hurt_sound = $HurtSound
 onready var animation_player = $AnimationPlayer
+onready var movement_sound =  $AmbientSound
+onready var FlameAmbient = preload("res://character/flame-ambience.ogg")
+onready var FrostAmbient = preload("res://character/frost-ambience.ogg")
 
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
@@ -40,9 +43,11 @@ func _ready():
 	FireSprite.material = FireSprite.material.duplicate()
 	FrostSprite.material = FrostSprite.material.duplicate()
 	if PLAYER_TYPE == PlayerType.FIRE:
+		movement_sound.stream = FlameAmbient
 		FireSprite.visible = true
 		FrostSprite.visible = false
 	if PLAYER_TYPE == PlayerType.FROST:
+		movement_sound.stream = FrostAmbient
 		FireSprite.visible = false
 		FrostSprite.visible = true
 
@@ -63,6 +68,9 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(input_vector * CHARGING_SPEED, CHARGING_ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
+	
+	var velocity_length = velocity.length()
+	movement_sound.pitch_scale = max(1.0, velocity_length / 100)
 
 func _on_ChargeTimer_timeout():
 	charging = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://character/Character.gd" type="Script" id=1]
 [ext_resource path="res://character/frost.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://character/hurt4.ogg" type="AudioStream" id=10]
 [ext_resource path="res://character/hurt6.ogg" type="AudioStream" id=11]
 [ext_resource path="res://character/hurt5.ogg" type="AudioStream" id=12]
+[ext_resource path="res://character/flame-ambience.ogg" type="AudioStream" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -185,13 +186,13 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 31 )
 frames = SubResource( 11 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 30 )
 frames = SubResource( 21 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -245,6 +246,14 @@ volume_db = -10.0
 [node name="Hurt6" type="AudioStreamPlayer2D" parent="HurtSound"]
 stream = ExtResource( 11 )
 volume_db = -10.0
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -4.0
+autoplay = true
+max_distance = 1000.0
+attenuation = 4.28709
+bus = "CharacterBackground"
 
 [connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]
 [connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]

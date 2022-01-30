@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/frost-ambience.ogg-8c7a76811d4abb42cab55daa79190110.oggstr"
+
+[deps]
+
+source_file="res://character/frost-ambience.ogg"
+dest_files=[ "res://.import/frost-ambience.ogg-8c7a76811d4abb42cab55daa79190110.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
