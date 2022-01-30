@@ -132,3 +132,5 @@ frame = 3
 anims/RESET = SubResource( 2 )
 anims/health-fire = SubResource( 1 )
 anims/health-ice = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
