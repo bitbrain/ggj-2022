@@ -87,7 +87,7 @@ tile_data = PoolIntArray( -262154, 2, 0, -262150, 0, 0, -327675, 0, 0, -196613, 
 [node name="WorldObjects" type="YSort" parent="."]
 
 [node name="Fire" parent="WorldObjects" instance=ExtResource( 1 )]
-position = Vector2( 210, 8 )
+position = Vector2( -190, -6 )
 east_action = "player1_move_east"
 west_action = "player1_move_west"
 south_action = "player1_move_south"
@@ -95,7 +95,7 @@ north_action = "player1_move_north"
 charge_action = "player1_charge"
 
 [node name="Frost" parent="WorldObjects" instance=ExtResource( 1 )]
-position = Vector2( -189, 3 )
+position = Vector2( 230, 2 )
 PLAYER_TYPE = 1
 east_action = "player2_move_east"
 west_action = "player2_move_west"
