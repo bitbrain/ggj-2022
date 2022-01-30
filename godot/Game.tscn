@@ -191,3 +191,5 @@ margin_bottom = 0.0
 character_path = NodePath("../../WorldObjects/Fire")
 
 [node name="Overlay" parent="UI" instance=ExtResource( 8 )]
+
+[connection signal="on_complete_fade_out" from="UI/Overlay" to="." method="_on_Overlay_on_complete_fade_out"]

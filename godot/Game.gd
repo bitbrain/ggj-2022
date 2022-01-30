@@ -10,7 +10,13 @@ func _ready():
 	overlay.fade_in()
 
 func _playeronedeath():
-	print("Player one died")
+	overlay.fade_out()
+	Global.winner = Character.PlayerType.FROST
 	
 func _playertwodeath():
-	print("Player two died")
+	overlay.fade_out()
+	Global.winner = Character.PlayerType.FIRE
+
+
+func _on_Overlay_on_complete_fade_out():
+	Global.goto_scene("res://GameOverScreen.tscn")
