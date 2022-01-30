@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://character/Character.gd" type="Script" id=1]
 [ext_resource path="res://character/frost.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://character/hurt6.ogg" type="AudioStream" id=11]
 [ext_resource path="res://character/hurt5.ogg" type="AudioStream" id=12]
 [ext_resource path="res://character/flame-ambience.ogg" type="AudioStream" id=13]
+[ext_resource path="res://effects/FireEffect.tscn" type="PackedScene" id=14]
+[ext_resource path="res://effects/FrostEffect.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -186,13 +188,13 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 31 )
 frames = SubResource( 11 )
-frame = 4
+frame = 6
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 30 )
 frames = SubResource( 21 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -248,12 +250,19 @@ volume_db = -10.0
 
 [node name="AmbientSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
-volume_db = -4.0
+volume_db = 4.0
 autoplay = true
 max_distance = 1000.0
 attenuation = 4.28709
 bus = "CharacterBackground"
 
+[node name="FrostHurtEffect" parent="." instance=ExtResource( 15 )]
+emitting = false
+
+[node name="FireHurtEffect" parent="." instance=ExtResource( 14 )]
+emitting = false
+
 [connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]
 [connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

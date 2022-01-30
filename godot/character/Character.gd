@@ -31,6 +31,8 @@ onready var animation_player = $AnimationPlayer
 onready var movement_sound =  $AmbientSound
 onready var FlameAmbient = preload("res://character/flame-ambience.ogg")
 onready var FrostAmbient = preload("res://character/frost-ambience.ogg")
+onready var FrostHurtEffect = $FrostHurtEffect
+onready var FireHurtEffect = $FireHurtEffect
 
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
@@ -104,8 +106,16 @@ func take_damage(damage):
 	self.health = self.health - damage
 	animation_player.play("damage")
 	hurt_sound.play()
+	if PLAYER_TYPE == PlayerType.FIRE:
+		FrostHurtEffect.emitting = true
+	else:
+		FireHurtEffect.emitting = true
 
 func _on_Area2D_body_entered(body):
 	var other_character = body as Character
 	if charging:
 		other_character.take_damage(20)
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	FrostHurtEffect.emitting = false
+	FireHurtEffect.emitting = false
