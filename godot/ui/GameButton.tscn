@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ui/buttons.png" type="Texture" id=1]
 [ext_resource path="res://font/font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/GameButton.gd" type="Script" id=3]
+[ext_resource path="res://ui/button-click.ogg" type="AudioStream" id=4]
+[ext_resource path="res://ui/button-hover.ogg" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -42,6 +44,14 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Environment"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_GameButton_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_GameButton_mouse_exited"]

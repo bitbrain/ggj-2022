@@ -185,12 +185,13 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 31 )
 frames = SubResource( 11 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 30 )
 frames = SubResource( 21 )
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
