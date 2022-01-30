@@ -151,7 +151,7 @@ rect_min_size = Vector2( 210, 97 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CenterContainer/VBoxContainer/MarginContainer2/CenterContainer/Logo"]
 position = Vector2( 106, 47 )
 frames = SubResource( 25 )
-frame = 15
+frame = 19
 playing = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]

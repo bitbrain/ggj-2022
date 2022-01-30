@@ -26,6 +26,7 @@ onready var FireSprite = $FireSprite
 onready var FrostSprite = $FrostSprite
 onready var ChargerTimer = $Timer
 onready var dash_sound = $DashSound
+onready var hurt_sound = $HurtSound
 onready var animation_player = $AnimationPlayer
 
 var velocity = Vector2.ZERO
@@ -94,6 +95,7 @@ func ressurect():
 func take_damage(damage):
 	self.health = self.health - damage
 	animation_player.play("damage")
+	hurt_sound.play()
 
 func _on_Area2D_body_entered(body):
 	var other_character = body as Character

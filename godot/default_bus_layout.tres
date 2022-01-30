@@ -2,9 +2,12 @@
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
-room_size = 0.36
-damping = 0.32
-spread = 0.67
+predelay_msec = 30.0
+predelay_feedback = 0.2
+room_size = 0.18
+damping = 0.11
+spread = 0.16
+hipass = 0.15
 dry = 0.69
 wet = 0.29
 

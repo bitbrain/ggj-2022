@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hurt5.ogg-2002ccafd9ecb8b565e8f4b6fc551331.oggstr"
+
+[deps]
+
+source_file="res://character/hurt5.ogg"
+dest_files=[ "res://.import/hurt5.ogg-2002ccafd9ecb8b565e8f4b6fc551331.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
