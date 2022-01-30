@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tree/tree.png" type="Texture" id=1]
 [ext_resource path="res://tree/Tree.gd" type="Script" id=2]
+[ext_resource path="res://effects/FireEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/FrostEffect.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0
@@ -28,6 +30,12 @@ autostart = true
 [node name="EnergyTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="FlameParticleEffect" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="FrostParticleEffect" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

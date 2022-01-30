@@ -1,15 +1,22 @@
 class_name Object_Tree
 extends Node2D
+
 var closebycharacter = []
 onready var treeSprite = $Sprite
+onready var frost_effect = $FrostParticleEffect
+onready var fire_effect = $FlameParticleEffect
 
 func _on_Area2D_body_entered(body):
 	var character = body as Character
 	closebycharacter.append(character)
 	if character.PLAYER_TYPE == Character.PlayerType.FIRE and character.charging:
 		treeSprite.frame = 1
+		fire_effect.visible = true
+		frost_effect.visible = false
 	if character.PLAYER_TYPE == Character.PlayerType.FROST and character.charging:
-		treeSprite.frame = 2	
+		treeSprite.frame = 2
+		fire_effect.visible = false
+		frost_effect.visible = true
 	#print ("Collision with tree detected")
 
 func _on_BurstTimer_timeout():
