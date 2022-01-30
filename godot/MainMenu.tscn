@@ -150,7 +150,7 @@ rect_min_size = Vector2( 210, 97 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CenterContainer/VBoxContainer/MarginContainer2/CenterContainer/Logo"]
 position = Vector2( 106, 47 )
 frames = SubResource( 25 )
-frame = 18
+frame = 1
 playing = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
@@ -193,6 +193,8 @@ text = "built within 48 hours for Global Game Jam 2022"
 align = 1
 
 [node name="Overlay" parent="." instance=ExtResource( 5 )]
+fade_in_duration = 0.5
+fade_out_duration = 0.5
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/PlayGameButton" to="." method="_on_PlayGameButton_pressed"]
 [connection signal="on_complete_fade_out" from="Overlay" to="." method="_on_Overlay_on_complete_fade_out"]
