@@ -186,13 +186,12 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 31 )
 frames = SubResource( 11 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 30 )
 frames = SubResource( 21 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -252,7 +251,6 @@ volume_db = -4.0
 autoplay = true
 max_distance = 1000.0
 attenuation = 4.28709
-bus = "CharacterBackground"
 
 [connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]
 [connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]
