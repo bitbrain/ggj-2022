@@ -120,12 +120,13 @@ shape = SubResource( 1 )
 visible = false
 material = SubResource( 23 )
 frames = SubResource( 11 )
+frame = 6
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 22 )
 frames = SubResource( 21 )
-frame = 7
+frame = 4
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -145,9 +146,9 @@ shape = SubResource( 24 )
 
 [node name="DashSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-volume_db = -10.0
-max_distance = 1500.0
-attenuation = 2.54912
+volume_db = -13.0
+max_distance = 2600.0
+attenuation = 1.31951
 bus = "Environment"
 
 [connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]

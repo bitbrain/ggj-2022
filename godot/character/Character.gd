@@ -48,6 +48,7 @@ func _physics_process(delta):
 		self.energy = self.energy - 1
 		print("Charge used, energy is now "+str(energy))
 		ChargerTimer.start()
+		dash_sound.pitch_scale = rand_range(0.9, 1.1)
 		dash_sound.play()
 		
 	if not charging:
