@@ -1,16 +1,18 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://character/Character.gd" type="Script" id=1]
 [ext_resource path="res://character/frost.png" type="Texture" id=2]
 [ext_resource path="res://character/fire.png" type="Texture" id=3]
 [ext_resource path="res://character/dash.ogg" type="AudioStream" id=4]
+[ext_resource path="res://shader/damage.gdshader" type="Shader" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
 height = 4.0
 
-[sub_resource type="CanvasItemMaterial" id=23]
-light_mode = 1
+[sub_resource type="ShaderMaterial" id=31]
+shader = ExtResource( 5 )
+shader_param/enabled = false
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -56,8 +58,9 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=22]
-light_mode = 1
+[sub_resource type="ShaderMaterial" id=30]
+shader = ExtResource( 5 )
+shader_param/enabled = false
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
@@ -106,6 +109,61 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=24]
 radius = 36.0139
 
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FireSprite:material:shader_param/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FrostSprite:material:shader_param/enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("FireSprite:material:shader_param/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FrostSprite:material:shader_param/enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false ]
+}
+
 [node name="Character" type="KinematicBody2D"]
 collision_layer = 6
 script = ExtResource( 1 )
@@ -118,15 +176,15 @@ shape = SubResource( 1 )
 
 [node name="FrostSprite" type="AnimatedSprite" parent="."]
 visible = false
-material = SubResource( 23 )
+material = SubResource( 31 )
 frames = SubResource( 11 )
-frame = 6
+frame = 3
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
-material = SubResource( 22 )
+material = SubResource( 30 )
 frames = SubResource( 21 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -150,6 +208,10 @@ volume_db = -13.0
 max_distance = 2600.0
 attenuation = 1.31951
 bus = "Environment"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 29 )
+anims/damage = SubResource( 28 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_ChargeTimer_timeout"]
 [connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]

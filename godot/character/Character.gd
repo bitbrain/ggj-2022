@@ -26,6 +26,7 @@ onready var FireSprite = $FireSprite
 onready var FrostSprite = $FrostSprite
 onready var ChargerTimer = $Timer
 onready var dash_sound = $DashSound
+onready var animation_player = $AnimationPlayer
 
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
@@ -35,6 +36,8 @@ var energy = 5 setget _set_energy
 var death = false
 
 func _ready():
+	FireSprite.material = FireSprite.material.duplicate()
+	FrostSprite.material = FrostSprite.material.duplicate()
 	if PLAYER_TYPE == PlayerType.FIRE:
 		FireSprite.visible = true
 		FrostSprite.visible = false
@@ -90,7 +93,7 @@ func ressurect():
 
 func take_damage(damage):
 	self.health = self.health - damage
-	#print("Ouch..."+str(health))
+	animation_player.play("damage")
 
 func _on_Area2D_body_entered(body):
 	var other_character = body as Character
