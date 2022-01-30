@@ -215,7 +215,6 @@ stream = ExtResource( 4 )
 volume_db = -13.0
 max_distance = 2600.0
 attenuation = 1.31951
-bus = "Environment"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 29 )
